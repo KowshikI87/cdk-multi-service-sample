@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>App 1</title>
+</head>
+<body>
+  <button onclick="sendRequest()">Send Request</button>
+  <script>
+    function sendRequest() {
+      fetch('http://localhost:3001/send-request', { method: 'POST' })
+        .then(response => response.text())
+        .then(text => {
+          const resultEl = document.createElement('p');
+          resultEl.textContent = text;
+          document.body.appendChild(resultEl);
+        })
+        .catch(err => console.error(err));
+    }
+  </script>
+</body>
+</html>
